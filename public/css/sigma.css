@@ -1,0 +1,46 @@
+h3 {
+  color: #52b38f !important;
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 2em;
+}
+
+h5 {
+  color: #52b38f !important;
+  font-size: 1em;
+  text-align: center;
+  margin-top: 0;
+}
+
+h6 {
+  margin-block-start: 0.5em !important;
+  margin-block-end: 0.5em !important;
+}
+
+.botonSgm {
+  color: #fff !important;
+  background-color: #52b38f !important;
+}
+
+.botonInicioSgm {
+  color: #fff !important;
+  background-color: #52b38f !important;
+  padding-left: 1.5rem !important;
+  padding-right: 1.5rem !important;
+}
+
+.snackbarSgm {
+  font-size: 0.9rem !important;
+}
+
+.css-1eqdgzv-MuiPaper-root-MuiSnackbarContent-root {
+  font-size: 1rem !important;
+}
+
+.fondoSgm {
+  background-color: blanchedalmond;
+}
+
+.fondo2Sgm {
+  background-color: gray;
+}
