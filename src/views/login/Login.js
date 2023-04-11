@@ -1,23 +1,21 @@
-import React, { useContext, useState } from "react";
-import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
-import { GenerarContext } from "../../context/GenerarContext";
-import TextFieldSgm from "../../components/TextFieldSgm";
-import SnackbarAppSgm from "../../components/SnackbarAppSgm";
+import Grid from "@mui/material/Grid";
+import React, { useContext, useState } from "react";
 import AutocompleteSgm from "../../components/AutocompleteSgm";
+import SnackbarAppSgm from "../../components/SnackbarAppSgm";
+import TextFieldSgm from "../../components/TextFieldSgm";
 
+import { Button, CardActions } from "@mui/material";
+import { AppContext } from "../../context/AppContext";
 import {
   styleCard,
-  styleCardHeaderTitle,
   styleCardHeader,
+  styleCardHeaderTitle,
 } from "../../style/style";
-import { Button, CardActions } from "@mui/material";
-import { Box } from "@mui/system";
 import ClientJSON from "../../util/ClientJSON";
 import endpoints from "../../util/Parametros";
-import { AppContext } from "../../context/AppContext";
 
 export default function Login() {
   const { mensajeError } = useContext(AppContext);

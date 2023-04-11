@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext, useEffect } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import ClientJSON from "../util/ClientJSON";
 import endpoints from "../util/Parametros";
 import { AppContext } from "./AppContext";
@@ -92,27 +92,6 @@ const recuperaCategoriasOrg = (
       setCategorias(respuesta.datos);
     } else {
       mensajeError("Error al recuperar las categorías por organizacion.");
-    }
-  })();
-};
-
-const recuperaCategoriasTipo = (
-  setCategoriasTipo,
-  mensajeError,
-  setCargando
-) => {
-  setCargando(true);
-  (async () => {
-    var respuesta = await ClientJSON(
-      endpoints.sgmErpRS + "/categoriaTipo",
-      null,
-      "GET"
-    );
-    setCargando(false);
-    if (!respuesta.error) {
-      setCategoriasTipo(respuesta.datos);
-    } else {
-      mensajeError("Error al recuperar los tipos de categorías.");
     }
   })();
 };
@@ -608,7 +587,6 @@ const GenerarProvider = (props) => {
 
   const [estados, setEstados] = useState([]);
   const [origenes, setOrigenes] = useState([]);
-  const [categoriasTipo, setCategoriasTipo] = useState([]);
   const [registro, setRegistro] = useState({});
   const [registroDependiente, setRegistroDependiente] = useState({});
   const [impuestoTipo, setImpuestoTipo] = useState([]);
@@ -791,9 +769,6 @@ const GenerarProvider = (props) => {
       setCargando
     );
   };
-  const listaCategoriasTipo = () => {
-    recuperaCategoriasTipo(setCategoriasTipo, mensajeError, setCargando);
-  };
 
   useEffect(() => {
     const recuperaLS = () => {
@@ -849,8 +824,6 @@ const GenerarProvider = (props) => {
         stepActivo,
         listaCategoriasOrg,
         categorias,
-        listaCategoriasTipo,
-        categoriasTipo,
         setRegistro,
         registro,
         setRegistroDependiente, // Procesar registro que requiere datos del registro principal
