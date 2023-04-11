@@ -3,10 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App.js";
 import AppProvider from "./context/AppContext";
 import "./style/sigma.css";
-import {
-  setTokenUser,
-  setUserSession
-} from "./util/common/Common";
+import { setTokenUser, setUserSession } from "./util/common/Common";
 import { ONLINE } from "./util/common/const.js";
 
 var datos = {
@@ -202,16 +199,6 @@ if (!ONLINE) {
                 name: "Reportes",
                 icon: "assessment",
                 component: "reportesFac/ReportesFac",
-                layout: "/admin",
-                acciones: botonesAcciones,
-                orden: 1,
-              },
-              {
-                codigoPantalla: 1086,
-                path: "ATS",
-                name: "Generar ATS",
-                icon: "notes",
-                component: "generarATS/GenerarATS",
                 layout: "/admin",
                 acciones: botonesAcciones,
                 orden: 1,
