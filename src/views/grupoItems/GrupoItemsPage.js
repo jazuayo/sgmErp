@@ -1,25 +1,24 @@
-import React, { useContext, useEffect } from "react";
 import Box from "@mui/material/Box";
-import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-import HeaderTab from "../header/HeaderTab.js";
-import HeaderButton from "../header/HeaderButton.js";
-import IconSgm from "../../util/IconSgm";
+import Stepper from "@mui/material/Stepper";
+import React, { useContext, useEffect } from "react";
+import DeleteButtonSgm from "../../components/DeleteButtonSgm";
+import SaveButtonSgm from "../../components/SaveButtonSgm";
 import SnackbarAppSgm from "../../components/SnackbarAppSgm";
 import SpinnerSgm from "../../components/SpinnerSgm";
-import { GenerarContext } from "../../context/GenerarContext";
-import { verificaAccion, ACCIONES_PANTALLA } from "../../util/common/Common";
-import ClientJSON from "../../util/ClientJSON";
 import { AppContext } from "../../context/AppContext";
+import { GenerarContext } from "../../context/GenerarContext";
+import ClientJSON from "../../util/ClientJSON";
+import IconSgm from "../../util/IconSgm";
 import endpoints from "../../util/Parametros";
-import { getUser } from "../../util/common/Common";
+import { ACCIONES_PANTALLA, getUser, verificaAccion } from "../../util/common/Common";
 import { grupoItemObj } from "../../util/types.js";
-import SaveButtonSgm from "../../components/SaveButtonSgm";
-import DeleteButtonSgm from "../../components/DeleteButtonSgm";
+import HeaderButton from "../header/HeaderButton.js";
+import HeaderTab from "../header/HeaderTab.js";
 // Steps
-import GrupoItemsStepListar from "./GrupoItemsStepListar.js";
 import GrupoItemsStepDetalle from "./GrupoItemsStepDetalle.js";
+import GrupoItemsStepListar from "./GrupoItemsStepListar.js";
 const steps = ["LISTAR GRUPO DE ITEMS", "DETALLE DEL GRUPO DE ITEMS"];
 
 export default function GrupoItemsPage(props) {
@@ -96,13 +95,11 @@ export default function GrupoItemsPage(props) {
 
   const stepSiguente = () => {
     setStepActivo(stepActivo + 1);
-    if (itemGrupoTipo.length === 1) {
-      setRegistro({
-        ...registro,
-        itemGrupoTipoCod: itemGrupoTipo[0].itemGrupoTipoCod,
-        itemGrupoTipoDes: itemGrupoTipo[0].itemGrupoTipoDes,
-      });
-    }
+    setRegistro({
+      ...registro,
+      itemGrupoTipoCod: itemGrupoTipo.itemGrupoTipoCod,
+      itemGrupoTipoDes: itemGrupoTipo.itemGrupoTipoDes,
+    });
   };
 
   const stepAterior = () => {
@@ -111,8 +108,6 @@ export default function GrupoItemsPage(props) {
       ...registro,
       itemGrupoCod: "",
       itemGrupoDes: "",
-      itemGrupoTipoCod: "",
-      itemGrupoTipoDes: "",
     });
     listaGrupoItems(codigoOrganizacion);
     listaImpuestos();

@@ -1,19 +1,17 @@
-import React, { useContext, useEffect, useState } from "react";
-import Grid from "@mui/material/Grid";
-import TextFieldSgm from "../../components/TextFieldSgm";
-import { GenerarContext } from "../../context/GenerarContext";
-import { getUser } from "../../util/common/Common";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
+import Grid from "@mui/material/Grid";
+import React, { useContext, useEffect } from "react";
+import TableSgm from "../../components/TableSgm";
+import TextFieldSgm from "../../components/TextFieldSgm";
+import { GenerarContext } from "../../context/GenerarContext";
 import {
   styleCard,
-  styleCardHeaderTitle,
   styleCardHeader,
+  styleCardHeaderTitle,
 } from "../../style/style";
-import AutocompleteSgm from "../../components/AutocompleteSgm";
-import TableSgm from "../../components/TableSgm";
-import { AppContext } from "../../context/AppContext";
+import { getUser } from "../../util/common/Common";
 export default function GrupoItemsStepDetalle() {
   const {
     registro,
@@ -32,15 +30,7 @@ export default function GrupoItemsStepDetalle() {
       [event.target.id]: event.target.value,
     });
   };
-  const handleOnChangeAutocompleteItemGrupoTipo = (event, value) => {
-    if (value !== null) {
-      setRegistro({
-        ...registro,
-        itemGrupoTipoCod: value.itemGrupoTipoCod,
-        itemGrupoTipoDes: value.itemGrupoTipoDes,
-      });
-    }
-  };
+
   const seleccionarRegistroImpuestos = (selectedRow) => {
     // Copie los datos de la fila y establezca el estado marcado
     const rowDataCopy = { ...selectedRow };
@@ -81,7 +71,7 @@ export default function GrupoItemsStepDetalle() {
             />
             <CardContent>
               <Grid container spacing={{ xs: 1, md: 2 }}>
-                <Grid item xs={12} md={3}>
+                <Grid item xs={12} md={4}>
                   <TextFieldSgm
                     id="itemGrupoCod"
                     label="Código de grupo:"
@@ -97,19 +87,7 @@ export default function GrupoItemsStepDetalle() {
                     onChange={handleOnChange}
                   />
                 </Grid>
-                {itemGrupoTipo.length !== 1 && (
-                  <Grid item xs={12} md={3}>
-                    <AutocompleteSgm
-                      id="itemGrupoTipoDes"
-                      label="Tipo de grupo:"
-                      options={itemGrupoTipo}
-                      value={registro}
-                      getOptionLabel={(option) => option.itemGrupoTipoDes}
-                      onChange={handleOnChangeAutocompleteItemGrupoTipo}
-                    />
-                  </Grid>
-                )}
-                <Grid item xs={12} md={2}>
+                <Grid item xs={12} md={4}>
                   <TextFieldSgm
                     id="organizacionDes"
                     label="Organización:"

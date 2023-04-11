@@ -598,7 +598,7 @@ const GenerarProvider = (props) => {
   const [itemInventario, setItemInventario] = useState([]);
   const [lugares, setLugares] = useState({});
   const [cantones, setCantones] = useState([]);
-  const [itemGrupoTipo, setItemGrupoTipo] = useState([]);
+  const [itemGrupoTipo, setItemGrupoTipo] = useState({});
   const [parametroPrecioCalcula, setParametroPrecioCalcula] = useState([]);
 
   const listarPlanDeCuentas = (codigoOrganizacion, tipo) => {
