@@ -36,10 +36,6 @@ export default function ReportesFacPage(props) {
       mensajeError("Seleccione el tipo de categoria/reporte.");
       return;
     }
-    if (registro.formatoReporte === "") {
-      mensajeError("Seleccione el formato de reporte.");
-      return;
-    }
     if (
       registro.categoriaCod === inventarioValorObj().codigo &&
       registro.itemDes === ""
@@ -82,9 +78,6 @@ export default function ReportesFacPage(props) {
       //items
       itemDes: "",
       itemCod: "",
-      //formato
-      formatoReporte: "",
-      tipo: "",
     });
   };
   const cargarParametro = (orgCod, clave) => {

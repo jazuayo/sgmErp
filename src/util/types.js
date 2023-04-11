@@ -640,10 +640,7 @@ export const inventarioValorObj = () => {
   return dato;
 };
 
-export const formatoReporte = [
-  { formatoReporte: ".xlsx", tipo: "EXCEL" },
-  { formatoReporte: ".pdf", tipo: "PDF" },
-];
+export const formatoReporte = [{ formatoReporte: ".pdf", tipo: "PDF" }];
 
 export const atsObj = () => {
   const dato = {

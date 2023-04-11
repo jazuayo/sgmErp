@@ -1,21 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
-import Grid from "@mui/material/Grid";
-import { GenerarContext } from "../../context/GenerarContext";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
+import Grid from "@mui/material/Grid";
+import React, { useContext, useEffect, useState } from "react";
 import AutocompleteSgm from "../../components/AutocompleteSgm";
+import DateFieldSgm from "../../components/DateFieldSgm";
+import TextFieldSgm from "../../components/TextFieldSgm";
+import { GenerarContext } from "../../context/GenerarContext";
 import {
   styleCard,
-  styleCardHeaderTitle,
   styleCardHeader,
+  styleCardHeaderTitle,
 } from "../../style/style";
-import TextFieldSgm from "../../components/TextFieldSgm";
-import DateFieldSgm from "../../components/DateFieldSgm";
 import { getUser } from "../../util/common/Common";
-import { inventarioValorObj } from "../../util/types";
-import { formatoReporte } from "../../util/types";
-import { itemGrupoTipo } from "../../util/types";
+import { formatoReporte, inventarioValorObj, itemGrupoTipo } from "../../util/types";
 
 export default function ReporteFacDetalle(props) {
   const { registro, setRegistro, categorias, items } =
@@ -41,16 +39,6 @@ export default function ReporteFacDetalle(props) {
     }
   };
 
-  const handleOnChangeFormatoRep = (event, value) => {
-    if (value !== null) {
-      setRegistro({
-        ...registro,
-        formatoReporte: value.formatoReporte,
-        tipo: value.tipo,
-      });
-    }
-  };
-
   const handleOnChangeAutoItem = (event, value) => {
     if (value !== null) {
       setRegistro({
@@ -67,6 +55,8 @@ export default function ReporteFacDetalle(props) {
       ...registro,
       organizacionCod: codigoOrganizacion,
       organizacionDes: organizacion,
+      formatoReporte: formatoReporte[0].formatoReporte,
+      tipo: formatoReporte[0].tipo,
     });
   }, []);
 
@@ -103,13 +93,11 @@ export default function ReporteFacDetalle(props) {
               />
             </Grid>
             <Grid item md={4} xs={12}>
-              <AutocompleteSgm
+              <TextFieldSgm
                 id="formatoReporte"
                 label="Formato de reporte"
-                options={formatoReporte}
-                value={registro}
-                getOptionLabel={(option) => option.tipo}
-                onChange={handleOnChangeFormatoRep}
+                value={formatoReporte[0].tipo}
+                disabled
               />
             </Grid>
             {registro.categoriaCod === inventarioValorObj().codigo && (
