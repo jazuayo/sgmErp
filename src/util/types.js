@@ -444,23 +444,6 @@ export const planCuentaObj = () => {
   return dato;
 };
 
-export const categoriaObj = () => {
-  const dato = {
-    categoriaCod: "",
-    categoriaDes: "",
-
-    // Tipos Categorías
-    categoriaTipoCod: "",
-    categoriaTipoDes: "",
-
-    // Organizaciones
-    organizacionCod: "",
-    organizacionDes: "",
-    //categoria organizacion
-    catOrgId: 0,
-  };
-  return dato;
-};
 export const impuestoObj = () => {
   const dato = {
     impuestoCod: "",
